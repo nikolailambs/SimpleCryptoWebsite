@@ -1,4 +1,4 @@
-<% crypto_array = ["xtz", "waves", "usdt", "mkr", "lsk", "etc", "btc", "bat", "atom", "ada"] %>
+<% crypto_array = ["xtz", "waves", "usdt", "mkr", "lsk", "etc", "btc", "bat", "atom", "ada", "uni", "ocean", "grt", "near", "avax"] %>
 <% taken_top_num = [] %>
 <% taken_left_num = [] %>
 
@@ -11,41 +11,38 @@
       <div class="shape shape-2"></div>
       <div class="shape shape-3"></div>
     </div>
+
     <div class="content">
       <h1>SimpleCryptos</h1>
-          <% crypto_array.each do |logo| %>
+      <%= cl_image_tag 'simpleCryptos_logo_wide.png', id:"main-logo"  %>
+        <% crypto_array.each do |logo| %>
           <% top = ([*5..95] - [*30..64] - taken_top_num).sample %>
           <% left = ([*10..90] - taken_left_num).sample  %>
-            <%= cl_image_tag "SimpleCryptos/#{logo}-md", class:"background-logo", style:"position:absolute; top: #{ top }%; left: #{ left }%" %>
+          <%= cl_image_tag "SimpleCryptos/#{logo}", class:"background-logo", style:"position:absolute; top: #{ top }%; left: #{ left }%" %>
 
-            <% taken_top_num.push([*top - 2..top + 2]) %>
-            <% taken_top_num.flatten! %>
+          <% taken_top_num.push([*top - 2..top + 2]) %>
+          <% taken_top_num.flatten! %>
 
-            <% taken_left_num.push([*left - 2..left + 2]) %>
-            <% taken_left_num.flatten! %>
-
-
-          <% end %>
+          <% taken_left_num.push([*left - 2..left + 2]) %>
+          <% taken_left_num.flatten! %>
+        <% end %>
     </div>
 
+    <!-- second page section -->
+    <div class="content" style="top: 100vh;">
 
+      <a href="http://www.nikolailambsdorff.com" target="blank" style="color:#000;">Click</a>
 
+    </div>
 
   </div>
 
 
 
-  <div class="container">
+  <!-- <div class="container" style="height: 100vh;">
 
+  </div> -->
 
-    <%= cl_image_tag 'SimpleCryptos/info' %>
-    <%= cl_image_tag 'SimpleCryptos/search' %>
-    <%= cl_image_tag 'SimpleCryptos/global' %>
-    <%= cl_image_tag 'SimpleCryptos/head' %>
-    <%= cl_image_tag 'SimpleCryptos/card' %>
-    <%= cl_image_tag 'SimpleCryptos/chart1' %>
-    <%= cl_image_tag 'SimpleCryptos/chart2' %>
-  </div>
 </div>
 
 
@@ -53,19 +50,35 @@
 
 <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
 <script>
+  var lastScrollTop = 100; // scroll threshold
+
   document.body.addEventListener("mousemove", evt => {
-  const mouseX = evt.clientX;
-  const mouseY = evt.clientY;
+    const mouseX = evt.clientX;
+    const mouseY = evt.clientY;
+     var st = window.pageYOffset || document.documentElement.scrollTop;
 
-  gsap.set(".cursor", {
-    x: mouseX,
-    y: mouseY
+    // cursor and shape value
+    gsap.set(".cursor", {
+      x: mouseX,
+      y: mouseY
+    });
+    gsap.to(".shape", {
+      x: mouseX,
+      y: mouseY + st,
+      stagger: -0.1
+    });
   })
 
-  gsap.to(".shape", {
-    x: mouseX,
-    y: mouseY,
-    stagger: -0.1
-  })
-})
+  // scroll value
+  document.addEventListener("scroll", function(){
+     var st = window.pageYOffset || document.documentElement.scrollTop;
+     if (st > lastScrollTop){
+        // downscroll code
+        console.log(st)
+
+     } else {
+        // upscroll code
+     }
+     // lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+  }, false);
 </script>
