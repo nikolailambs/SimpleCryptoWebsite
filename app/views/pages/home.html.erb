@@ -1,56 +1,123 @@
-<% crypto_array = ["xtz", "waves", "usdt", "mkr", "lsk", "etc", "btc", "bat", "atom", "ada", "uni", "ocean", "grt", "near", "avax"] %>
-<% taken_top_num = [] %>
-<% taken_left_num = [] %>
+<%# crypto_array = ["mkr", "etc", "btc", "atom", "uni", "ocean", "grt", "near", "avax"] %>
+<%# taken_top_num = [] %>
+<%# taken_left_num = [] %>
+<h1 id="page-fixed-logo">SimpleCryptos</h1>
 
 <div class="wrapper">
 
   <div style="position: relative;">
-    <div class="cursor"></div>
-    <div class="shapes">
+    <div id="cursor"></div>
+<!--     <div class="shapes">
       <div class="shape shape-1"></div>
       <div class="shape shape-2"></div>
       <div class="shape shape-3"></div>
-    </div>
+    </div> -->
 
     <div class="content">
-      <h1>SimpleCryptos</h1>
-      <%= cl_image_tag 'simpleCryptos_logo_wide.png', id:"main-logo"  %>
-        <% crypto_array.each do |logo| %>
-          <% top = ([*5..95] - [*30..64] - taken_top_num).sample %>
-          <% left = ([*10..90] - taken_left_num).sample  %>
-          <%= cl_image_tag "SimpleCryptos/#{logo}", class:"background-logo", style:"position:absolute; top: #{ top }%; left: #{ left }%" %>
+          <div class="col-md-8 col-sm-12 header-text-wrapper">
+            <div style="display: block; justify-content: center; align-items: center; text-align: center;">
+              <%= cl_image_tag 'icon.png', id:"main-logo"  %>
+              <h1>SimpleCryptos</h1>
+              <h3>The perfect app to track all your favorite cryptos.</h3>
+              <div>
+                <a href="https://apps.apple.com/de/app/simplecryptos/id1496560196" target="blank" class="download-button">
+                  <i class="fab fa-apple"></i>
+                  Download for free
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12">
+            <%= cl_image_tag "SimpleCryptos/two_total.png", style:"width: 80%;" %>
+          </div>
+    </div>
 
-          <% taken_top_num.push([*top - 2..top + 2]) %>
-          <% taken_top_num.flatten! %>
-
-          <% taken_left_num.push([*left - 2..left + 2]) %>
-          <% taken_left_num.flatten! %>
-        <% end %>
+    <!-- banner section -->
+    <div class="divider">
+      <div class="row" style="text-align: center;">
+        <div class="col-md-4 col-sm-12">
+          <div class="features-card">
+            <i class="fab fa-bitcoin" style="font-size: 35px; margin: 20px 0; padding: 15px; border-radius: 50%; color: #ff5e00; background: #ffe0ce;"></i>
+            <p>Over 6,000 crypto coins</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="features-card">
+            <i class="fas fa-star" style="font-size: 35px; margin: 20px 0; padding: 15px; border-radius: 50%; color: #ffea00; background: #fefee2;"></i>
+            <p>Save your favorite cryptos</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="features-card">
+            <i class="fas fa-lock" style="font-size: 35px; margin: 20px 0; padding: 15px; border-radius: 50%; color: #00d000; background: #d3ffd5;"></i>
+            <p>Full privacy</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- second page section -->
-    <div class="content" style="top: 100vh;">
+    <div class="content">
+      <div class="container">
 
-      <a href="http://www.nikolailambsdorff.com" target="blank" style="color:#000;">Click</a>
+        <!-- feature to left -->
+        <div class="row" style="margin-top: 40px; margin-bottom: 40px;">
+          <div class="col-md-4 col-sm-12">
+            <%= cl_image_tag "SimpleCryptos/feature_6.png", style:"width: 300px;" %>
+          </div>
+          <div class="col-md-8 col-sm-12 feature-text-wrapper" style="justify-content: flex-start;">
+            <h4>All your favorite cryptos in one dashboard</h4>
+          </div>
+        </div>
 
+        <!-- feature to right -->
+        <div class="row" style="margin-top: 40px; margin-bottom: 40px;">
+          <div class="col-md-8 col-sm-12 feature-text-wrapper" style="justify-content: flex-end;">
+            <h4>Multi-touch price chart analysis</h4>
+          </div>
+          <div class="col-md-4 col-sm-12">
+            <%= cl_image_tag "SimpleCryptos/feature_5.png", style:"width: 300px;" %>
+          </div>
+        </div>
+
+        <!-- feature to left -->
+        <div class="row" style="margin-top: 40px; margin-bottom: 40px;">
+          <div class="col-md-4 col-sm-12">
+            <%= cl_image_tag "SimpleCryptos/feature-detail.png", style:"width: 300px;" %>
+          </div>
+          <div class="col-md-8 col-sm-12 feature-text-wrapper" style="justify-content: flex-start;">
+            <h4>Detailed infos about every crypto coin</h4>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin: 100px 0 150px;">
+          <div>
+            <%= cl_image_tag 'icon.png', id:"main-logo"  %>
+          </div>
+          <a href="https://apps.apple.com/de/app/simplecryptos/id1496560196" target="blank" class="download-button">
+            <i class="fab fa-apple"></i>
+            Download for free
+          </a>
+        </div>
+      </div>
     </div>
 
+
   </div>
-
-
-
-  <!-- <div class="container" style="height: 100vh;">
-
-  </div> -->
-
 </div>
 
+<div class="footer">
+  <p>Copyright © 2019 Nikolai Graf Lambsdorff</p>
 
-
+  <div>
+    <a href="http://www.nikolailambsdorff.com/impressum">Impressum</a>
+    <a href="http://www.nikolailambsdorff.com">To the Developer <i class="fas fa-arrow-right"></i></a>
+  </div>
+</div>
 
 <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
 <script>
-  var lastScrollTop = 100; // scroll threshold
+  // var lastScrollTop = 100; // scroll threshold
 
   document.body.addEventListener("mousemove", evt => {
     const mouseX = evt.clientX;
@@ -58,27 +125,55 @@
      var st = window.pageYOffset || document.documentElement.scrollTop;
 
     // cursor and shape value
-    gsap.set(".cursor", {
+    gsap.set("#cursor", {
       x: mouseX,
       y: mouseY
     });
-    gsap.to(".shape", {
-      x: mouseX,
-      y: mouseY + st,
-      stagger: -0.1
-    });
+    // gsap.to(".shape", {
+    //   x: mouseX,
+    //   y: mouseY + st,
+    //   stagger: -0.1
+    // });
   })
 
   // scroll value
-  document.addEventListener("scroll", function(){
-     var st = window.pageYOffset || document.documentElement.scrollTop;
-     if (st > lastScrollTop){
-        // downscroll code
-        console.log(st)
+  // document.addEventListener("scroll", function(){
+  //    var st = window.pageYOffset || document.documentElement.scrollTop;
+  //    if (st > lastScrollTop){
+  //       // downscroll code
+  //       console.log(st)
 
-     } else {
-        // upscroll code
-     }
-     // lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-  }, false);
+  //    } else {
+  //       // upscroll code
+  //    }
+  //    // lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+  // }, false);
 </script>
+
+<script>
+  $('.download-button')
+    .mouseenter(function() {
+      $('#cursor').animate({"width": "35px", "height": "35px"});
+    })
+    .mouseleave(function() {
+      $('#cursor').animate({"width": "20px", "height": "20px"});
+    });
+
+  $(window).scroll(function() {
+     var height = $(window).scrollTop();
+     if (height > 500) {
+        $("#page-fixed-logo").show();
+     } else {
+        $('#page-fixed-logo').hide();
+     }
+   });
+</script>
+
+
+
+
+
+
+
+
+
